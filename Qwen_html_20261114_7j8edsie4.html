@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE COMEBACK ✳ Тренировка + Встреча | Екатеринбург · 29.11.2026</title>
+    <meta name="description" content="Mobility, Stretch и встреча с Натальей и Вероникой. 29 ноября 2026, RA Dance, Екатеринбург.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAF7F4;
+            --bg-alt: #F0EBE6;
+            --ink: #1A1614;
+            --ink-soft: #4A403A;
+            --muted: #8A7F78;
+            --accent: #D4A5A0;
+            --accent-deep: #B8787A;
+            --accent-pale: #F5E6E4;
+            --blue: #A8C5D6;
+            --blue-deep: #6B8FA3;
+            --blue-pale: #E4EEF3;
+            --sand: #E8DCC8;
+            --cream: #FDF8F0;
+            --radius: 20px;
+            --radius-lg: 32px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== ФОНОВЫЕ БЛОБЫ ===== */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+            animation: blobFloat 20s ease-in-out infinite;
+        }
+        .blob-1 { width: 500px; height: 500px; background: var(--accent); top: -150px; left: -150px; animation-delay: 0s; }
+        .blob-2 { width: 600px; height: 600px; background: var(--blue); top: 40%; right: -200px; animation-delay: -7s; }
+        .blob-3 { width: 450px; height: 450px; background: var(--sand); bottom: -100px; left: 30%; animation-delay: -14s; }
+        @keyframes blobFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.08); }
+            66% { transform: translate(-30px, 40px) scale(0.95); }
+        }
+
+        /* ===== ЗВЁЗДЫ ===== */
+        .stars { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+        .star {
+            position: absolute;
+            animation: twinkle var(--d, 4s) ease-in-out infinite, drift var(--dd, 8s) ease-in-out infinite;
+            animation-delay: var(--dl, 0s);
+            filter: drop-shadow(0 0 8px currentColor);
+            will-change: transform, opacity;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; transform: scale(0.85) rotate(0deg); }
+            50% { opacity: var(--op, 0.7); transform: scale(1.15) rotate(180deg); }
+        }
+        @keyframes drift {
+            0%, 100% { translate: 0 0; }
+            50% { translate: var(--dx, 15px) var(--dy, -25px); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+
+        /* ===== ОБЩИЕ КОНТЕЙНЕРЫ ===== */
+        .wrap { position: relative; z-index: 2; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+        .container-narrow { max-width: 820px; margin: 0 auto; padding: 0 32px; }
+
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        .display { font-family: 'Space Grotesk', sans-serif; }
+        .italic { font-style: italic; }
+        .accent-text { color: var(--accent-deep); }
+        .blue-text { color: var(--blue-deep); }
+        .muted { color: var(--muted); }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 80px 32px 60px;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background-image: url('trainers.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            animation: heroZoom 20s ease-out forwards;
+        }
+        @keyframes heroZoom { to { transform: scale(1); } }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background:
+                linear-gradient(180deg, rgba(20,15,12,0.4) 0%, transparent 25%),
+                linear-gradient(0deg, rgba(20,15,12,0.85) 0%, rgba(20,15,12,0.3) 50%, transparent 80%);
+        }
+        .hero-grain {
+            position: absolute; inset: 0;
+            opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #fff;
+            max-width: 1000px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+            padding: 10px 22px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 100px;
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,0.06);
+            margin-bottom: 36px;
+            animation: fadeUp 1s ease-out 0.2s both;
+        }
+        .hero-eyebrow .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(4rem, 14vw, 10rem);
+            font-weight: 300;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            animation: fadeUp 1.2s ease-out 0.4s both;
+        }
+        .hero-title .star-mark {
+            display: inline-block;
+            color: var(--accent);
+            filter: drop-shadow(0 0 20px rgba(212,165,160,0.8));
+            animation: starPulse 3s ease-in-out infinite;
+            margin: 0 0.1em;
+        }
+        @keyframes starPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.2) rotate(30deg); opacity: 0.8; }
+        }
+
+        .hero-sub {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 28px;
+            animation: fadeUp 1s ease-out 0.6s both;
+        }
+
+        .hero-lead {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.6rem, 4vw, 2.6rem);
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 12px;
+            animation: fadeUp 1s ease-out 0.8s both;
+        }
+        .hero-lead em { color: var(--accent); font-style: italic; }
+
+        .hero-meta {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            animation: fadeUp 1s ease-out 1s both;
+        }
+        .hero-meta .sep { margin: 0 10px; opacity: 0.4; }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            color: var(--ink);
+            padding: 20px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 20px 60px -20px rgba(0,0,0,0.5);
+            animation: fadeUp 1s ease-out 1.2s both;
+        }
+        .hero-cta:hover {
+            transform: translateY(-4px) scale(1.02);
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 30px 80px -20px rgba(212,165,160,0.6);
+        }
+        .hero-cta .arrow { transition: transform 0.3s; }
+        .hero-cta:hover .arrow { transform: translateX(6px); }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            animation: fadeUp 1s ease-out 1.6s both;
+        }
+        .scroll-hint .line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent); animation: scrollLine 2s ease-in-out infinite; }
+        @keyframes scrollLine { 0%, 100% { transform: scaleY(1); opacity: 0.5; } 50% { transform: scaleY(0.6); opacity: 1; } }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== БЕГУЩАЯ СТРОКА ===== */
+        .marquee {
+            background: var(--ink);
+            color: var(--bg);
+            padding: 22px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            z-index: 2;
+        }
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+        }
+        .marquee-track span { margin: 0 24px; }
+        .marquee-track .star { color: var(--accent); animation: none; filter: none; position: static; }
+        @keyframes marquee { to { transform: translateX(-50%); } }
+
+        /* ===== СЕКЦИИ ===== */
+        section { padding: 120px 0; position: relative; z-index: 2; }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent-deep);
+            margin-bottom: 32px;
+        }
+        .section-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent-deep);
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+        .section-title em { color: var(--accent-deep); font-style: italic; }
+
+        /* ===== REVEAL АНИМАЦИИ ===== */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== 01 / ПРИВЕТ ===== */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .intro-text p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--ink-soft);
+            margin-bottom: 20px;
+        }
+        .intro-text p.large {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        /* ===== ФОТО В БЛОКЕ 01 ===== */
+        .intro-visual {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 30px 80px -30px rgba(0,0,0,0.35);
+        }
+        .intro-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        .intro-visual:hover img { transform: scale(1.04); }
+
+        /* Тёплый градиент поверх фото для читаемости текста */
+        .intro-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to bottom, rgba(20,15,12,0.25) 0%, transparent 30%),
+                linear-gradient(to top, rgba(20,15,12,0.75) 0%, rgba(20,15,12,0.2) 45%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .intro-visual .number {
+            position: absolute;
+            top: 28px;
+            left: 32px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: #fff;
+            z-index: 2;
+            padding: 8px 16px;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .intro-names {
+            position: absolute;
+            top: 28px;
+            right: 32px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: #fff;
+            z-index: 2;
+            padding: 8px 16px;
+            background: rgba(212,165,160,0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        .intro-names .sep {
+            margin: 0 8px;
+            color: var(--accent);
+            animation: pulse 2s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .intro-visual .quote {
+            position: absolute;
+            bottom: 36px;
+            left: 32px;
+            right: 32px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.7rem;
+            color: #fff;
+            line-height: 1.3;
+            z-index: 2;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+        }
+        .intro-visual .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            line-height: 0;
+            vertical-align: -22px;
+            margin-right: 4px;
+            text-shadow: 0 0 20px rgba(212,165,160,0.6);
+        }
+
+        .intro-sign {
+            margin-top: 32px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--accent-deep);
+        }
+
+        /* ===== 02 / ЧТО БУДЕТ — ТАЙМЛАЙН ===== */
+        .timeline-section { background: var(--cream); }
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 60px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--accent), var(--blue));
+        }
+        .timeline-item {
+            position: relative;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px -8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .timeline-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 40px -12px rgba(0,0,0,0.12);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 36px;
+            width: 17px;
+            height: 17px;
+            background: var(--bg);
+            border: 2px solid var(--accent-deep);
+            border-radius: 50%;
+        }
+        .timeline-item:nth-child(2)::before { border-color: var(--blue-deep); }
+        .timeline-item:nth-child(3)::before { border-color: var(--accent-deep); }
+
+        .timeline-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--accent-deep);
+            margin-bottom: 12px;
+        }
+        .timeline-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .timeline-desc {
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .timeline-time {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 14px;
+            background: var(--accent-pale);
+            border-radius: 100px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-deep);
+        }
+
+        /* ===== 03 / ТРЕНЕРЫ ===== */
+        .trainers-hero {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 48px;
+            aspect-ratio: 16/9;
+            box-shadow: 0 30px 80px -30px rgba(0,0,0,0.3);
+        }
+        .trainers-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .trainers-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(20,15,12,0.85) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
+        .trainers-hero-text {
+            color: #fff;
+            max-width: 600px;
+        }
+        .trainers-hero-text .label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+        .trainers-hero-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+        .trainers-hero-text h3 em { color: var(--accent); font-style: italic; }
+
+        .trainers-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .trainer-card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .trainer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .trainer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px -20px rgba(0,0,0,0.15);
+        }
+        .trainer-card:hover::before { transform: scaleX(1); }
+
+        .trainer-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-pale), var(--blue-pale));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-deep);
+            margin-bottom: 24px;
+        }
+        .trainer-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .trainer-role {
+            font-size: 0.9rem;
+            color: var(--accent-deep);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .trainer-desc {
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== 04 / ДЕТАЛИ + СЧЁТЧИКИ ===== */
+        .details-section { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
+        .details-section::before {
+            content: '✳';
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+            font-size: 30rem;
+            color: rgba(255,255,255,0.03);
+            animation: slowRotate 40s linear infinite;
+        }
+        @keyframes slowRotate { to { transform: translateY(-50%) rotate(360deg); } }
+        .details-section .section-label { color: var(--accent); }
+        .details-section .section-label::before { background: var(--accent); }
+        .details-section .section-title em { color: var(--accent); }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 60px 0;
+        }
+        .stat {
+            padding: 32px 24px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .stat-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        .detail-card {
+            padding: 28px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        .detail-card:hover { background: rgba(255,255,255,0.08); }
+        .detail-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .detail-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .location-block {
+            margin-top: 60px;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(168,197,214,0.15), rgba(212,165,160,0.15));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+        .location-block h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+        .location-block h3 em { color: var(--accent); font-style: italic; }
+        .location-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+        .location-step {
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: var(--radius-sm);
+        }
+        .location-step strong {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .location-step p { font-size: 0.95rem; opacity: 0.9; }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: #fff;
+            color: var(--ink);
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .map-btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+
+        /* ===== 05 / РЕГИСТРАЦИЯ ===== */
+        .register-section {
+            background: linear-gradient(135deg, var(--accent-pale) 0%, var(--blue-pale) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .register-section::before {
+            content: '♡';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            font-size: 20rem;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .register-box {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            box-shadow: 0 30px 80px -30px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+        .register-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--accent-deep);
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .telegram-card {
+            background: linear-gradient(135deg, var(--ink) 0%, #2a2420 100%);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .telegram-card::before {
+            content: '✳';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            color: rgba(212,165,160,0.15);
+        }
+        .telegram-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .telegram-card p { opacity: 0.8; margin-bottom: 24px; font-size: 0.95rem; }
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .telegram-btn:hover { background: #fff; color: var(--ink); transform: translateY(-2px); }
+
+        .form-preview {
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--bg-alt);
+            border-radius: var(--radius);
+            opacity: 0.6;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .form-field label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+        .form-field input, .form-field select, .form-field textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--ink);
+        }
+        .form-field textarea { min-height: 100px; resize: vertical; }
+
+        /* ===== 06 / FAQ ===== */
+        .faq-list { margin-top: 48px; }
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding: 24px 0;
+        }
+        .faq-q {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--ink);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            padding: 0;
+            transition: color 0.3s;
+        }
+        .faq-q:hover { color: var(--accent-deep); }
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent-deep);
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+        }
+        .faq-item.active .faq-icon { transform: rotate(45deg); background: var(--accent-deep); color: #fff; }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-a { max-height: 400px; padding-top: 20px; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        footer .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        footer .logo .star-mark { color: var(--accent); }
+        footer p { font-size: 0.9rem; margin-bottom: 8px; }
+        footer .heart { color: var(--accent); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .intro-grid, .trainers-cards, .location-steps, .form-row { grid-template-columns: 1fr; gap: 32px; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .details-grid { grid-template-columns: 1fr; }
+            section { padding: 80px 0; }
+            .register-box { padding: 40px 24px; }
+            .location-block { padding: 32px 24px; }
+        }
+        @media (max-width: 600px) {
+            .container, .container-narrow { padding: 0 20px; }
+            .hero { padding: 60px 20px 40px; }
+            .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat { padding: 24px 16px; }
+            .stat-num { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Фоновые блобы -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- Звёзды -->
+<div class="stars" aria-hidden="true">
+    <span class="star" style="top:6%;  left:7%;  font-size:32px; color:#D4A5A0; --d:5s;   --dd:10s; --dl:0s;   --op:0.7;  --dx:14px; --dy:-22px;">✳</span>
+    <span class="star" style="top:13%; left:86%; font-size:26px; color:#A8C5D6; --d:6s;   --dd:12s; --dl:1.2s; --op:0.6;  --dx:-18px;--dy:-26px;">✦</span>
+    <span class="star" style="top:28%; left:4%;  font-size:20px; color:#B8787A; --d:4.5s; --dd:9s;  --dl:2.5s; --op:0.55; --dx:10px; --dy:-16px;">✧</span>
+    <span class="star" style="top:40%; left:93%; font-size:28px; color:#D4A5A0; --d:5.5s; --dd:11s; --dl:0.6s; --op:0.65; --dx:-12px;--dy:-20px;">⋆</span>
+    <span class="star" style="top:54%; left:5%;  font-size:22px; color:#A8C5D6; --d:4s;   --dd:8s;  --dl:3s;   --op:0.55; --dx:16px; --dy:-18px;">✶</span>
+    <span class="star" style="top:64%; left:89%; font-size:24px; color:#B8787A; --d:6.5s; --dd:13s; --dl:1.8s; --op:0.6;  --dx:-14px;--dy:-24px;">✳</span>
+    <span class="star" style="top:76%; left:9%;  font-size:18px; color:#D4A5A0; --d:5s;   --dd:10s; --dl:4s;   --op:0.5;  --dx:12px; --dy:-16px;">✦</span>
+    <span class="star" style="top:86%; left:91%; font-size:26px; color:#A8C5D6; --d:5.5s; --dd:11s; --dl:0.3s; --op:0.6;  --dx:-16px;--dy:-22px;">✧</span>
+    <span class="star" style="top:22%; left:48%; font-size:16px; color:#fff;    --d:4s;   --dd:9s;  --dl:2s;   --op:0.5;  --dx:8px;  --dy:-14px;">⋆</span>
+    <span class="star" style="top:72%; left:50%; font-size:16px; color:#fff;    --d:5s;   --dd:10s; --dl:1s;   --op:0.5;  --dx:-10px;--dy:-16px;">✶</span>
+    <span class="star" style="top:18%; left:22%; font-size:12px; color:#fff;    --d:3s;   --dd:7s;  --dl:0.5s; --op:0.45; --dx:6px;  --dy:-10px;">✦</span>
+    <span class="star" style="top:34%; left:72%; font-size:10px; color:#D4A5A0; --d:3.5s; --dd:8s;  --dl:1.5s; --op:0.4;  --dx:-8px; --dy:-12px;">✧</span>
+    <span class="star" style="top:48%; left:30%; font-size:11px; color:#A8C5D6; --d:4s;   --dd:9s;  --dl:2.2s; --op:0.45; --dx:7px;  --dy:-11px;">⋆</span>
+    <span class="star" style="top:60%; left:78%; font-size:10px; color:#fff;    --d:3.2s; --dd:7s;  --dl:0.8s; --op:0.4;  --dx:-6px; --dy:-10px;">✦</span>
+    <span class="star" style="top:80%; left:25%; font-size:12px; color:#B8787A; --d:3.8s; --dd:8s;  --dl:3.5s; --op:0.45; --dx:9px;  --dy:-13px;">✧</span>
+    <span class="star" style="top:92%; left:65%; font-size:11px; color:#D4A5A0; --d:4.2s; --dd:9s;  --dl:1.2s; --op:0.45; --dx:-7px; --dy:-11px;">⋆</span>
+    <span class="star" style="top:10%; left:60%; font-size:10px; color:#fff;    --d:3s;   --dd:7s;  --dl:2.8s; --op:0.4;  --dx:5px;  --dy:-9px;">✦</span>
+    <span class="star" style="top:44%; left:15%; font-size:11px; color:#A8C5D6; --d:3.5s; --dd:8s;  --dl:0.2s; --op:0.45; --dx:-8px; --dy:-12px;">✧</span>
+</div>
+
+<div class="wrap">
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+        <div class="hero-inner">
+            <div class="hero-eyebrow">
+                <span class="dot"></span>
+                29 / 11 / 2026 · Екатеринбург
+            </div>
+            <h1 class="hero-title">THE COMEBACK<span class="star-mark">✳</span></h1>
+            <p class="hero-sub">Тренировка · Встреча · Движение</p>
+            <p class="hero-lead">Возвращаемся. Двигаемся. <em>Встречаемся.</em></p>
+            <p class="hero-meta">С Натальей и Вероникой <span class="sep">·</span> RA Dance <span class="sep">·</span> зал «Флагман»</p>
+            <a href="#register" class="hero-cta">Хочу на THE COMEBACK <span class="arrow">→</span></a>
+        </div>
+        <div class="scroll-hint">
+            <span>Листай</span>
+            <span class="line"></span>
+        </div>
+    </header>
+
+    <!-- ===== БЕГУЩАЯ СТРОКА ===== -->
+    <div class="marquee">
+        <div class="marquee-track">
+            <span>MOBILITY</span><span class="star">✳</span><span>STRETCH</span><span class="star">✳</span><span>THE COMEBACK</span><span class="star">✳</span><span>MOBILITY</span><span class="star">✳</span><span>STRETCH</span><span class="star">✳</span><span>HIP-HOP</span><span class="star">✳</span>
+            <span>MOBILITY</span><span class="star">✳</span><span>STRETCH</span><span class="star">✳</span><span>THE COMEBACK</span><span class="star">✳</span><span>MOBILITY</span><span class="star">✳</span><span>STRETCH</span><span class="star">✳</span><span>HIP-HOP</span><span class="star">✳</span>
+        </div>
+    </div>
+
+    <!-- ===== 01 / ПРИВЕТ ===== -->
+    <section>
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <div class="section-label reveal">01 / Привет, это мы</div>
+                    <h2 class="section-title reveal reveal-delay-1">Есть встречи, к которым хочется <em>вернуться.</em></h2>
+                    <p class="large reveal reveal-delay-2">Мы снова собираемся вместе — чтобы двигаться, почувствовать своё тело и провести время в приятной компании.</p>
+                    <p class="reveal reveal-delay-3">Знакомые лица и новые знакомства, музыка и радость совместной тренировки. 29 ноября ждём тебя в Екатеринбурге. Можно прийти впервые, без опыта тренировок и без компании — будем рады всем!</p>
+                    <p class="intro-sign reveal reveal-delay-4">— Наталья и Вероника ♡</p>
+                </div>
+                <div class="intro-visual reveal">
+                    <img src="intro.jpg" alt="Наталья и Вероника — THE COMEBACK 2026">
+                    <div class="number">01 · 2026</div>
+                    <div class="intro-names">Наталья <span class="sep">✳</span> Вероника</div>
+                    <div class="quote">Снова вместе. Снова в движении.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 02 / ЧТО БУДЕТ ===== -->
+    <section class="timeline-section">
+        <div class="container-narrow">
+            <div class="section-label reveal">02 / Что будет</div>
+            <h2 class="section-title reveal reveal-delay-1">Двигаемся <em>по-своему.</em></h2>
+            <p class="muted reveal reveal-delay-2" style="font-size: 1.1rem;">60 минут движения, затем фотографии. Все времена — по Екатеринбургу.</p>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-num">01 / БЛОК</div>
+                    <h3 class="timeline-title">Mobility</h3>
+                    <p class="timeline-desc">Начинаем с Вероникой: работа над подвижностью и мягкое включение в движение.</p>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-num">02 / БЛОК</div>
+                    <h3 class="timeline-title">Stretch</h3>
+                    <p class="timeline-desc">Продолжаем с Натальей: плавно переходим к растяжке. Вместе оба блока — 15:05–16:05.</p>
+                    <span class="timeline-time">60 минут</span>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-num">03 / ФИНАЛ</div>
+                    <h3 class="timeline-title">Фото и встреча</h3>
+                    <p class="timeline-desc">14:30–14:55 — сбор и общение. 16:05–16:35 — фотографии на телефоны и завершение.</p>
+                    <span class="timeline-time">30 минут</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 03 / ТРЕНЕРЫ ===== -->
+    <section>
+        <div class="container">
+            <div class="section-label reveal">03 / С кем встречаемся</div>
+            <h2 class="section-title reveal reveal-delay-1">Две подруги. <em>Одна встреча.</em></h2>
+
+            <div class="trainers-hero reveal">
+                <img src="trainers.jpg" alt="Наталья и Вероника">
+                <div class="trainers-hero-overlay">
+                    <div class="trainers-hero-text">
+                        <div class="label">THE COMEBACK · 29 НОЯБРЯ</div>
+                        <h3>Наталья и Вероника <em>✳</em> Две подруги. Одна встреча.</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trainers-cards">
+                <div class="trainer-card reveal">
+                    <div class="trainer-avatar">Н</div>
+                    <h4>Наталья</h4>
+                    <div class="trainer-role">Stretch · тренер и соорганизатор</div>
+                    <p class="trainer-desc">Ведёт блок растяжки. Мягко, глубоко, с вниманием к каждому телу.</p>
+                </div>
+                <div class="trainer-card reveal reveal-delay-1">
+                    <div class="trainer-avatar">В</div>
+                    <h4>Вероника</h4>
+                    <div class="trainer-role">Mobility · тренер и соорганизатор</div>
+                    <p class="trainer-desc">Открывает встречу блоком мобильности. Помогает телу проснуться и включиться.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 04 / ДЕТАЛИ ===== -->
+    <section class="details-section">
+        <div class="container">
+            <div class="section-label reveal">04 / Давай встретимся</div>
+            <h2 class="section-title reveal reveal-delay-1">Твоё время <em>для движения.</em></h2>
+            <p class="reveal reveal-delay-2" style="font-size: 1.15rem; opacity: 0.85; max-width: 700px;">Встречаемся в зале «Флагман» студии RA Dance. В билете: тренировка, коврик, вода, совместные фото на телефоны и подарки — маска, предсказание и наклейки.</p>
+
+            <div class="stats">
+                <div class="stat reveal">
+                    <div class="stat-num">25</div>
+                    <div class="stat-label">мест всего</div>
+                </div>
+                <div class="stat reveal reveal-delay-1">
+                    <div class="stat-num">60</div>
+                    <div class="stat-label">минут движения</div>
+                </div>
+                <div class="stat reveal reveal-delay-2">
+                    <div class="stat-num">2</div>
+                    <div class="stat-label">тренера-подруги</div>
+                </div>
+                <div class="stat reveal reveal-delay-3">
+                    <div class="stat-num">1</div>
+                    <div class="stat-label">вечер вместе</div>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-card reveal">
+                    <div class="detail-label">Когда</div>
+                    <div class="detail-value">29 ноября 2026</div>
+                </div>
+                <div class="detail-card reveal reveal-delay-1">
+                    <div class="detail-label">Город</div>
+                    <div class="detail-value">Екатеринбург</div>
+                </div>
+                <div class="detail-card reveal reveal-delay-2">
+                    <div class="detail-label">Место</div>
+                    <div class="detail-value">RA Dance · зал «Флагман», ул. Луначарского, 205</div>
+                </div>
+                <div class="detail-card reveal">
+                    <div class="detail-label">Начало</div>
+                    <div class="detail-value">15:05 · сбор с 14:30</div>
+                </div>
+                <div class="detail-card reveal reveal-delay-1">
+                    <div class="detail-label">Длительность</div>
+                    <div class="detail-value">15:05–16:35</div>
+                </div>
+                <div class="detail-card reveal reveal-delay-2">
+                    <div class="detail-label">Стоимость</div>
+                    <div class="detail-value">1500 ₽ · первые 10<br>2000 ₽ · остальные 15</div>
+                </div>
+            </div>
+
+            <div class="location-block reveal">
+                <h3>Луначарского, 205. <em>Ждём на третьем.</em></h3>
+                <div class="location-steps">
+                    <div class="location-step">
+                        <strong>Пешком</strong>
+                        <p>Здание «Магнит»: главный вход → налево к лифтам → левый лифт → 3 этаж.</p>
+                    </div>
+                    <div class="location-step">
+                        <strong>На машине</strong>
+                        <p>Трёхуровневый паркинг. Рекомендуем уровень −2; с паркинга — на том же левом лифте на 3 этаж.</p>
+                    </div>
+                </div>
+                <a href="https://yandex.ru/maps/-/CHv~wK" target="_blank" class="map-btn">Открыть Яндекс Карты →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 05 / РЕГИСТРАЦИЯ ===== -->
+    <section class="register-section" id="register">
+        <div class="container-narrow">
+            <div class="register-box reveal">
+                <div class="section-label" style="text-align: center; display: block;">05 / Твой comeback</div>
+                <h2 class="section-title" style="text-align: center;">Увидимся <em>на тренировке?</em></h2>
+                <p class="muted" style="text-align: center; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Оставь бесплатную заявку. Наталья или Вероника свяжется с тобой в течение нескольких часов днём и отправит платёжную ссылку. Место подтверждается после полной оплаты. Всего 25 мест.</p>
+
+                <p class="register-quote">будет здорово снова быть рядом ♡</p>
+
+                <div class="telegram-card">
+                    <h4>Пока записываем в Telegram</h4>
+                    <p>Онлайн-форму готовим к открытию. Сейчас можно оставить заявку Наталье в Telegram — она расскажет о свободных местах и оплате.</p>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" class="telegram-btn">Оставить заявку в Telegram →</a>
+                </div>
+
+                <div class="form-preview">
+                    <div class="form-row">
+                        <div class="form-field"><label>Как тебя зовут? *</label><input type="text" placeholder="Имя" disabled></div>
+                        <div class="form-field"><label>Фамилия *</label><input type="text" placeholder="Фамилия" disabled></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field"><label>Откуда узнал(а)? *</label><select disabled><option>Выберите вариант</option><option>Instagram</option><option>Telegram</option><option>От друзей</option></select></div>
+                        <div class="form-field"><label>Как удобнее связаться? *</label><input type="text" placeholder="Telegram или телефон" disabled></div>
+                    </div>
+                    <div class="form-field" style="margin-bottom: 16px;"><label>Хочешь что-то добавить? <span class="muted" style="font-weight: 400;">необязательно</span></label><textarea placeholder="Например, особенности здоровья или вопросы" disabled></textarea></div>
+                    <p class="muted" style="font-size: 0.85rem; text-align: center;">Предварительная запись не требует оплаты и не закрепляет место.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 06 / FAQ ===== -->
+    <section>
+        <div class="container-narrow">
+            <div class="section-label reveal">06 / Ещё пара вопросов</div>
+            <h2 class="section-title reveal reveal-delay-1">Чтобы всё было <em>понятно.</em></h2>
+
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-q">Где и во сколько встречаемся? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">RA Dance · зал «Флагман», ул. Луначарского, 205. Начало: 15:05 · сбор 14:30–14:55.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-q">Можно без опыта и есть ли ограничение по возрасту? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">Да, новичкам рады! Возрастного ограничения нет. Если идёте с ребёнком, напишите Наталье заранее, чтобы обсудить формат участия.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-q">Как получить фотографии? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">Снимаем друг друга на телефоны. Ссылку на диск со снимками отправим в личные сообщения или в чат участников.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-q">Что взять с собой? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">Удобная спортивная одежда и носки. На площадке есть раздевалка. Дресс-код свободный, но будем рады, если поддержите палитру встречи: белый, розовый, голубой и коричневый, по возможности в светлых оттенках.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-q">Нужен ли свой коврик? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">Коврик предоставляем — приносить свой не нужно. Вода тоже включена.</div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-q">Как оплатить участие? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">Первые 10 оплаченных мест — 1500 ₽, остальные 15 — 2000 ₽. После заявки Наталья или Вероника отправит платёжную ссылку в личном сообщении. На полную оплату — 1 час с момента отправки ссылки; место и согласованная цена фиксируются на этот час. Если оплаты нет, бронь снимается. Можно записаться повторно при наличии мест.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-q">Как отменить участие? <span class="faq-icon">+</span></button>
+                    <div class="faq-a">До 15:05 27 ноября 2026 включительно можно отменить участие с полным возвратом или передать место другому человеку. После этого срока — передача места без возврата. Для отмены или замены напишите Наталье. Если отменим мероприятие мы, вернём оплату полностью. Время — Екатеринбург.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="logo">THE COMEBACK<span class="star-mark">✳</span></div>
+            <p>29 ноября 2026 · Екатеринбург · RA Dance</p>
+            <p style="margin-top: 16px;">Сделано с <span class="heart">♡</span> к движению</p>
+            <p class="muted" style="font-size: 0.8rem; margin-top: 24px;">© 2026 THE COMEBACK</p>
+        </div>
+    </footer>
+
+</div>
+
+<script>
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!wasActive) item.classList.add('active');
+        });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
